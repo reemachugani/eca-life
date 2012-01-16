@@ -1,0 +1,27 @@
+{% extends 'club/base.html' %}
+
+{% block title %}Delete Forum{% endblock %}
+
+{% block content %}
+
+    <div>
+		<h3>You are about to delete the following forum --</h3>
+		
+		<h4>Forum Summary -- </h4>
+		Club Name: {{ club.name }}
+    	Forum: {{ forum.title }}
+		Description: <br /> 
+		{{ forum.description|safe }}<br /><br/>
+		<form id="form" method="post" action=".">
+		   <ul>
+		    {{ form.as_ul }}
+		   </ul>
+		   <input type="submit" name="action" value="Save">
+		   <input type="submit" name="action" value="Cancel">
+		</form>
+		
+		<hr/>
+
+    </div>
+
+{% endblock %}

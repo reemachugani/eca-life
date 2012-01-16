@@ -1,0 +1,17 @@
+{% extends 'site_base.html' %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    
+    {% if user.is_authenticated %}
+        <ul>
+            <li><a href="{% url profiles_profile_detail user.username %} ">Your Profile</a></li>
+        </ul>
+    {% else %}
+        You are not a Registered user. <br>
+        <a href="{% url registration_register %}">Register</a> to join clubs.
+    {% endif %}
+
+{% endblock %}
+

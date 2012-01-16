@@ -1,0 +1,23 @@
+{% extends 'events/home.html' %}
+
+{%block results %}
+
+{% if not has_event %}
+<div id="falseannouncement-23" class="shadowin">No event at this date!
+</div>
+
+{% endif %}
+{% for i in eventdetail%}
+<div id="neutralannouncement-23" class="shadowin">
+<p>
+Title: <a href="/events/{{i.pk}}/">{{i.title}}</a>
+<br>
+Date: {{i.date}}
+<br>
+Venue: {{i.venue}}
+<br>
+</p>
+</div>
+{%endfor%}
+
+{% endblock %}

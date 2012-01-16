@@ -1,0 +1,49 @@
+{% extends "club/base.html" %}
+{% block content %}
+
+    <a href="/clubs/" class=button>All clubs</a>&nbsp&nbsp
+	<a href="/clubs/my_clubs/" class=button>My clubs</a>
+	{% if user.is_authenticated %}&nbsp&nbsp<a href="/clubs/add_club/" class=button>Add new club</a>{% endif %}
+	<div style="height:5px;"></div><hr>
+
+    {% block club_list %}
+        <p>Select a category and press "submit" to view clubs by category.</p>
+        <form action="" method="get">
+            {{ filter.form.as_p }}
+            <input type="submit" class = "button"/>
+        </form>
+        {% if clubs.object_list %}
+            {% for club in clubs.object_list %}
+                {% if club.is_active %}
+                <div id = "trueannouncement-23" class = "shadowin">
+                 <li><a href="/clubs/{{ club.pk }}/">{{ club.name }}</a><br>
+                {{ club.description|truncatewords_html:"50"|safe }}
+                </li>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div id="falseannouncement-23" class="shadowin">No results found!</div>
+        {% endif %}
+
+          {% if clubs.object_list and clubs.paginator.num_pages > 1 %}
+					<div class="pagination">
+					    <span class="step-links">
+					        {% if clubs.has_previous %}
+					            <a href= "?page={{ clubs.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+					        {% endif %}
+
+							{% if clubs.has_next %}
+					            <a href="?page={{ clubs.next_page_number }}">&nbsp;&nbsp;Next</a>
+					        {% endif %}
+
+					  		<span class="current">
+					   			&nbsp;(Page {{ clubs.number }} of {{ clubs.paginator.num_pages }})
+					    	</span>
+						</span>
+					</div>
+{% endif %}
+
+    {% endblock %}
+
+{% endblock %}

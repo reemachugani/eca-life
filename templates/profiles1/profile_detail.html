@@ -1,0 +1,14 @@
+{% extends 'profiles/base.html' %}
+
+<!--{% block head %}Profile Details{% endblock %}-->
+
+{% block content %}
+
+    <p><b>Username: </b><br/>
+    {{ profile.user.username }}</p>
+    <p><b>Description: </b><br/>
+    {{ profile.description }}</p>
+    <p><b>User Avatar: </b><br/></p>
+    <img src="{{ MEDIA_ROOT }}{{ profile.avatar }}"/>
+
+{% endblock %}

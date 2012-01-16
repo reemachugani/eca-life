@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% load i18n %}  
+{% block bodyclass %}about{% endblock %}
+{% block content %} 
+	{% block content_upper %} 
+	
+	<style>
+		
+	</style>
+	
+
+		<a href="{% url messages_inbox %} " class=button>{% trans "Inbox" %}</a></td>
+	    <a href="{% url messages_outbox %} " class=button>{% trans "Sent Messages" %}</a></td>
+	    <a href="{% url messages_compose %} " class=button>{% trans "New Message" %}</a></td>
+	    <a href="{% url messages_trash %} " class=button>{% trans "Trash" %}</a></td>
+	<div style="height:5px;"></div>
+	<hr>
+
+	
+	{% endblock %}
+	{% block content_lower %}
+	{% endblock %}
+{% endblock %}
+

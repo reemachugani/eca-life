@@ -1,0 +1,33 @@
+{% extends 'club/base.html' %}
+
+{% block title %}Club-wise forums{% endblock %}}
+
+{% block content %}
+
+    <div id = "pagetitle-24">Club Forums</div><!--End of pagetitle-24-->
+
+    <div id="list_of_forums">
+    {% if forums %}
+
+        {% for forum in forums %}
+        <div id = "trueannouncement-23" class = "shadowin">
+			<a href="{% url forum.views.forum forum.pk %}">{{ forum.title }}</a><br/><br/>
+            Description: <br />
+			{{ forum.description|safe }}<br /><br/>{% if is_admin %}
+			<div id="outer{{ forum.pk }}" onclick="forumDelete({{ forum.pk }});"><a href="#">Delete this forum</a>
+			<div id="inner{{ forum.pk }}" class="confirmation">
+			<p>Are you sure you want to delete this forum?</p>
+			<p><a href="{% url forum.views.delete_forum forum.pk %}">Yes</a></p>
+			<p><a href="#">No</a></p>
+			</div>
+			</div>{% endif %}
+		</div><!--End of trueannouncement-23-->
+        {% endfor %}
+    {% else %}
+        <div id = "falseannouncement-23" class="shadowin">Your club does not have any forum yet. Add one now!</div>
+	{% endif %}
+
+    </div>
+
+
+{% endblock %}

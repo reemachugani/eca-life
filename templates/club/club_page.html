@@ -1,0 +1,49 @@
+{% extends "club/base.html" %}
+
+{% block content %}
+
+<div id = "pagetitle-24">{{ club.name}}</div><!--End of pagetitle-24-->
+
+{% for admin in admins %}
+
+    {% if user == admin.student.user %}
+
+		<div id = "neutralannouncement-23" class = "shadowin">
+		<b>You are an administrator of <font color=green>{{club.name}}</font>.</b><br><br>
+        <a href="/clubs/{{ club.pk }}/add_event/" class=button>Add Event</a>&nbsp&nbsp
+        <a href="/clubs/{{ club.pk }}/new_forum/" class=button>Add Forum</a>&nbsp&nbsp
+        <a href="/clubs/{{ club.pk }}/make_announcement/" class=button>Make Announcement</a>
+		</div>
+    {% endif %}
+
+{% endfor %}
+
+    {% if not already_member %}
+		<div id = "neutralannouncement-23" class = "shadowin">
+        <div id="become_Member"><a href="/clubs/{{ club.pk }}/become_member/">Become a Member</a></div>
+	{% else %}
+		<div id = "trueannouncement-23" class = "shadowin"/>
+    {% endif %}
+
+
+    <p><b>Description: </b></p>
+    <p>{{ club.description|safe }}</p><br>
+    <p><b>Admins: </b></p>
+    
+    {% for admin in admins %}
+    {{admin.student.user.first_name}} {{admin.student.user.last_name}}<br>
+    {% endfor %}
+    <br>
+    <br>
+
+    {% if already_member %}
+
+    <a href="/clubs/{{ club.pk }}/all_events/" class="button">Club Events</a>&nbsp&nbsp
+	<a href="/clubs/{{ club.pk }}/all_club_forums/" class="button">Club Forums</a>&nbsp&nbsp
+	<a href="/clubs/{{ club.pk }}/all_announcements/" class="button">Club Announcements</a>
+
+    {% endif %}
+
+	</div><!--End of announcement-23-->
+
+{% endblock %}

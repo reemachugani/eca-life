@@ -1,0 +1,55 @@
+{% extends 'profiles/base.html' %}
+
+
+{% block content %}
+<a href="/profiles/password/change/" class=button>Change Your Password</a>
+<div style="height:5px;"></div><hr>
+<div id="pagetitle-24">My Profile</div>
+
+	
+	<table width=100% border=1 class=messages>
+		<tr>
+			<th>Name
+			<td>{{ profile.user.first_name }} {{ profile.user.last_name }}
+		<tr>
+			<th>Email id
+			<td>{{ profile.user.email }}
+		<tr>
+			<th>Username:
+			<td>{{ profile.user.username }}
+		<tr>
+			<th>My Clubs
+			<td>
+				{% if clubs %}
+				<ul>
+				{% for club in clubs %}
+					<li><a href="/clubs/{{ club.pk }}/">{{ club.name }}</a></li>
+				{% endfor %}
+				</ul>
+				{% else %}
+					<p>You have not joined any clubs!</p>
+				{% endif %}
+
+            {% load avatar_tags %}
+			<tr>
+			<th>My Avatar
+			<td>
+    <p>{% avatar profile.user 80 %}</p>
+    <a href="{% url avatar_add %}"><p>Add avatar</p></a>
+{#	{% if profile.avatar %}#}
+{#		<tr>#}
+{#			<th>User Avatar#}
+{#			<td><img src="{{ profile.avatar.url }}"/>#}
+{#    {% else %}#}
+{#        <td><img src="/static/images/default.jpg"/>#}
+{#    {% endif %}#}
+{#    <a href="/profiles/change_avatar/">Change your Avatar</a>#}
+	</table>
+
+{#    <img src="{{ MEDIA_ROOT }}{{ profile.avatar }}"/>#}
+    <br/>
+{#    <a href="{% url avatar_change %}">Change your avatar</a>#}
+
+
+
+{% endblock %}

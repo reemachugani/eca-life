@@ -1,0 +1,21 @@
+{% extends 'registration/base.html' %} 
+
+{% block title %}eCA Life User Registration{% endblock%}
+
+{% block content %}
+
+<style>
+
+#neutralannouncement-23
+{
+	position:relative;
+	left:-5px;
+}
+
+</style>
+
+<h1>Sign Up</h1>
+<div id = "neutralannouncement-23" class = "shadowin">
+{% include "registration/form.html" %}
+</div><!--End of neutralannouncement-23-->
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'event/base.html' %}
+
+{% block content %}
+
+    {% if already_there %}
+<div id="pagetitle-24">Registered!</div>
+        <div id="neutralannouncement-23" class="shadowin">You have already been registered for this event.</div>
+    <div id="back_link"><a href="/events/{{ event.pk }}/"class = "button">Back to Event Page</a></div>
+    {% else %}
+<div id="pagetitle-24">Success!</div>
+        <div id="neutralannouncement-23" class="shadowin">Thank You for registering. See you at the event.</div>
+    <div id="back_link"><a href="/events/{{ event.pk }}/"class = "button">Back to Event Page</a></div>
+
+    {% endif %}
+
+
+
+{% endblock %}

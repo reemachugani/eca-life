@@ -1,0 +1,35 @@
+
+<style>
+#id_username
+{
+	position:relative;
+	left:0px;
+}
+
+#id_password
+{
+	position:relative;
+	left:2px;
+}
+
+#passwordthing
+{
+	position:relative;
+	top:-23px;
+	left:35px;
+}
+
+#loginbutton
+{
+	position:relative;
+	left:-80px;
+}
+</style>
+	<form action='' method='post'>{% csrf_token %}
+		{{ form.as_ul }}
+		<input type="submit" value="login" class="button" id="loginbutton" />
+	</form>
+
+	<div id = "passwordthing"><a href="{% url auth_password_reset %}">Forgot your password?</a></div>
+
+

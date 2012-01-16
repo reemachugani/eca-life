@@ -1,0 +1,56 @@
+{% extends 'site_base.html' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+	<div id="searchBox-34">{% include 'search_form.html' %}</div>
+    {% if club or event or announce %}
+
+        <p>The search result for "{{ query }}" are as follow:</p>
+        {% if club %}
+            <b><span style="text-decoration:underline">Clubs</span></b>
+            <ul>
+            {% for c in club %}
+            <div id = "neutralannouncement-23" class = "shadowin">
+                <li><a href="/clubs/{{ c.pk }}/">{{ c.name }}</a></li>
+               </div>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if event %}
+            <b><span style="text-decoration:underline">Events</span></b>
+            <ul>
+            {% for e in event %}
+            <div id = "neutralannouncement-23" class = "shadowin">
+                <li>Club : {{ e.club }}<br/>
+                    <a href="/events/{{ e.pk }}/">{{ e.title }}</a><br/>
+                    Meant for : {{ e.get_viewership_display }}</li>
+                    </div>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if announce %}
+            <b><span style="text-decoration:underline">Announcements</span></b>
+            <ul>
+            {% for a in announce %}
+            <div id = "neutralannouncement-23" class = "shadowin">
+                <li>Club : {{ a.club }}<br/>
+                    {{ a.announcement|safe }}<br/>
+                    Meant for: {{ a.get_viewership_display }}</li>
+                    </div>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
+    {% else %}
+	<div id = "falseannouncement-23" class=shadowin>
+        {% if query %}
+            <p>No results found for "{{ query }}".</p>
+        {% else %}
+            <p>Type a search into the box above, and press "Submit" to search.</p>
+        {% endif %}
+	</div><!--End of falseannouncement-23-->
+    {% endif %}
+{% endblock %}

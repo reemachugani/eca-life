@@ -1,0 +1,12 @@
+{% extends "profiles/base.html" %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block head %}Edit Profile{% endblock %}
+
+{% block content %}
+
+{% for p in object_list  %}
+<a href="{% url profiles_profile_detail p.user %}">{{ p }}</a>>
+{% endfor %}
+ 
+{% endblock content %}

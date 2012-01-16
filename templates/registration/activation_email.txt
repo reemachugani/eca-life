@@ -1,0 +1,7 @@
+Thank you for registering at ecalife.com!
+
+You may now login to our website using the link below:
+ 
+Site: {{ site }}
+Activation_key: {{ activation_key }}
+Expires in: {{ expiration_days }} days

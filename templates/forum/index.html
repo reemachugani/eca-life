@@ -1,0 +1,69 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="main">
+
+<div id="forums-categories-holder-20">
+
+{% if not has_forum %}
+<div id="falseannouncement-23" class="shadowin">Your club does not have any forum.<br> If you one of the club administrators, you may add one now!</div>
+{% endif %}
+
+{% for club_wise_forums in forums %}
+
+	{% for forum in club_wise_forums %}
+
+	<div id="forums-individual-category-21" class="shadowin">
+		<h2 class="shadowin"><a href="{% url forum.views.forum forum.pk %}">{{ forum.title }}</a></h2>
+
+		<div id="forums-individual-category-innerpadding-22">
+		<table width=100%>
+		<tr>
+		<td width=25%>
+		{{ forum.description|safe }}
+		</td>
+		<td width=75%>
+		{% if not forum.thread_set.all %}
+		<p><b>This forum has no threads. Be the first to start a thread now!</b></p>
+		{% else %}
+		{% for thread in forum.thread_set.all %}
+				{% if forloop.counter <= 3 %}
+	    		<p><a href="{% url forum.views.thread thread.pk %}">{{ thread.title }}</a>
+				<span style="float:right;">{{ thread.num_replies }} replies / {{ thread.num_views }} views </span></p>
+					<p>Last post by {{ thread.last_post.creator }} on {{ thread.last_post.created }}</p>
+					<hr>
+				{% endif %}
+		{% endfor %}
+		{% endif %}
+		</table>
+
+    	<p class="topic_list_all">
+
+				<table border=0 style="position: relative; width : 100%;">
+				<tr>
+				<td width= 50%>
+				{{ forum.club.name }} >>> {{forum.title}}
+				<td width= 30% align = right>{% if forum.num_threads > 0 %}
+				<a href="{% url forum.views.forum forum.pk %}" class="button">View all {{ forum.num_threads }} topics >></a></p>{% endif %}
+				<td width= 20% align = right>
+				<a href="{% url forum.views.new_thread forum.pk %}" class="button">Add New Topic</a>
+				</table>
+
+		</div><!--forums-individual-category-innerpadding-22-->
+	</div><!--forums-individual-category-21-->
+
+	{% endfor %}
+
+
+
+
+{% endfor %}
+
+</div> <!--End of forums-categories-holder-20-->
+</div> <!-- End of main -->
+{% else %}
+<div id="falseannouncement-23" class="shadowin">Register now to participate in club forum discussions! &nbsp&nbsp<a href="{% url registration_register %}">Register Now>></a> </div>
+{% endif %}
+{% endblock %}

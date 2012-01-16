@@ -1,0 +1,51 @@
+<div class="red">
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+</div>
+<style>
+#id_first_name, #id_last_name, #id_email, #id_username, #id_password1, #id_password2
+{
+	padding-left: 5px;
+	width:180px;
+	height:20px;
+	font-size: 1.1em;
+}
+.errorlist ul,li{
+	padding: 0px;
+}
+
+tr, td
+{
+	vertical-align: middle;
+	height:55px;
+}
+
+.button
+{
+	width:150px;
+}
+</style>
+<center>
+<form method="post" action="" class="accountForm marginTop">{% csrf_token %}
+	<table class="" cellspacing="10" border=0>
+	{% for field in form %}
+		<tr>
+			<td valign="middle"><div class="hint" {%if field.field.required %} bold> {% endif %}{{ field.label_tag }}:<td valign="middle">{{ field }}</div>
+			</td>
+				
+			{% if field.help_text %}<td>{{ field.help_text }}</td>{% endif %}
+			{% if field.errors %}<td>{{ field.errors }}</td>{% endif %}
+		
+		</tr>
+	{% endfor %}
+		<tr>
+			<td colspan="3" align=left>				
+				<big><input type="submit" value="OK" class="button"></big>
+			</td>
+		</tr>
+		
+	</table>
+
+</form>
+</center>

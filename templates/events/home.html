@@ -1,0 +1,91 @@
+{% extends 'events/base.html' %}
+{% block content %}
+{% block sidebar %}
+
+<div id="pagetitle-24">Calendar</div>
+
+<center>
+
+<p>Click on the date on which you wish to view events, and then click on the View Events button.</p>
+
+<div id="calendar-38" onclick="updateDateButton();">
+</div>
+<p>
+<button id="dateButton" class=button onclick="gotoDate();" style="width: 265px;">View Events on Selected Date</button>
+</p>
+</center>
+<script>
+showCalendar();
+</script>
+<!-- keep here in case
+<div id="div1">
+<table border="1">
+	<tr>
+		<th>Sun</th>
+		<th>Mon</th>
+		<th>Tue</th>
+		<th>Wed</th>
+		<th>Thurs</th>
+		<th>Fri</th>
+		<th>Sat</th>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/01">1</a></td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/02">2</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/03">3</td>
+	</tr>
+	<tr>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/04">4</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/05">5</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/06">6</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/07">7</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/08">8</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/09">9</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/10">10</td>
+	</tr>
+	<tr>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/11">11</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/12">12</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/13">13</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/14">14</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/15">15</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/16">16</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/17">17</td>
+	</tr>
+	<tr>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/18">18</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/19">19</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/20">20</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/21">21</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/22">22</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/23">23</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/24">24</td>
+	</tr>
+	<tr>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/25">25</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/26">26</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/27">27</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/28">28</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/29">29</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/30">30</td>
+		<td><a href="http://127.0.0.1:8000/events/2011/12/31">31</td>
+	</tr>
+
+</table>
+</div>
+
+<div id="div2">
+<table border="1">
+<tr>
+<td>dfsdf</td>
+<td>sfdsf</td>
+</tr>
+</table>
+</div>-->
+{% endblock %}
+{% block results %} {% endblock %}
+{% endblock %}

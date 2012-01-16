@@ -1,0 +1,62 @@
+{% extends "messages/mbase.html" %}
+{% load i18n %}
+{% block content_lower %}
+<div id="pagetitle-24">{% trans "Compose Message"%}</div>
+<style>
+
+
+#id_recipient, #id_subject
+{
+	padding-left: 7px;
+	width:533px;
+	height:20px;
+	font-size: 1.1em;
+}
+
+.errorlist
+{
+	background:#fec; /*FFD073*/
+	padding:10px;
+	margin: 10px;
+	text-align:center;
+	color: maroon;
+	font-weight: bold;
+}
+</style>
+
+
+
+<form action="" method="post">{% csrf_token %}
+	<table class="" cellspacing="10">
+		<tr>
+			<td>Recipient:<td>
+			{{ form.recipient }}{% if form.recipient.help_text %}<div id="falseannouncement-23">{{ form.recipient.help_text }}</div>{% endif %}
+			{% if form.recipient.errors %}<div id="falseannouncement-23">{{ form.recipient.errors }}</div>{% endif %}</td>
+
+		</tr>
+		<tr>
+				<td>Subject:<td>
+				{{ form.subject }}{% if form.subject.help_text %}<div id="falseannouncement-23">{{ form.subject.help_text }}</div>{% endif %}
+			{% if form.subject.errors %}<div id="falseannouncement-23">{{ form.subject.errors }}</div>{% endif %}</td>
+
+		</tr>
+		<tr>
+						<td>Message:<td>
+						{{ form.body }}{% if form.body.help_text %}<div id="falseannouncement-23">{{ form.body.help_text }}</div>{% endif %}
+					{% if form.body.errors %}<div id="falseannouncement-23">{{ form.body.errors }}</div>{% endif %}</td>
+
+		</tr>
+
+
+
+		<tr>
+			<td colspan="3" >
+				<big><input type="submit" value="Send Message" class="button" style="width: 150px;"></big>
+			</td>
+		</tr>
+
+	</table>
+
+</form>
+
+{% endblock %}

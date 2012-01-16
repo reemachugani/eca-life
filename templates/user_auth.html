@@ -1,0 +1,40 @@
+{% load inbox %}
+
+<div id = "topbar-11"><center>
+	<div id = "header-12">
+		<h1 id = "title-13"></h1>
+		<div id = "logo-19" onclick="location.href='/homepage/';" onmouseover="this.style.cursor='pointer';"></div>
+
+		<div id = "messages-bar-3">
+
+			{% if user.is_authenticated %}
+			
+			<span id="yourProfile">
+    		Welcome, {{ user.username }} - <a href="{% url profiles_profile_detail user.username %}">View Profile</a> - <a href="{% url auth_logout %}">Logout</a>
+			</span>
+			
+			<span id="yourMessages" style="position:relative; float:right;">
+			
+			<a href = "/messages/">
+			<div id="messageIcon-27">
+			<div id="unreadMail-28">
+			<div id="unreadMailText-29">
+			{% inbox_count %}
+			</div>
+			</div>
+			</div>
+			View messages</a>
+			</span>
+			
+			
+			
+			{% else %}
+   			 Guest - <a href="{% url auth_login %}">Login</a> - <a href="{% url registration_register %}">Register</a>
+			 
+			{% endif %}
+
+		</div><!--End of messages-bar-3-->
+
+
+	</div><!--End of header-12--></center>
+</div><!--End of topbar-11-->

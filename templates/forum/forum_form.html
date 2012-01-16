@@ -1,0 +1,44 @@
+<div class="red">
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+</div>
+
+<style>
+p {
+	font-size: 1.2em;
+}
+#id_title
+{
+	padding-left: 7px;
+	padding-right: 7px;
+	width:553px;
+	height:25px;
+	font-size: 1.2em;
+}
+</style>
+
+<form method="post" action="" method="POST">{% csrf_token %}
+	<table class="" cellspacing="10">
+	{% for field in form %}
+		<tr>
+			<td><p class="hint" {%if field.field.required %} bold> {% endif %}{{ field.label_tag }}</p>
+			{{ field }}
+			{% if field.help_text %}<div id="falseannouncement-23">{{ field.help_text }}</div>{% endif %}
+			{% if field.errors %}<div id="falseannouncement-23">{{ field.errors }}</div>{% endif %}
+			</td>
+
+
+
+
+		</tr>
+	{% endfor %}
+		<tr>
+			<td colspan="3" >
+				<big><input type="submit" value="Confirm" class="button" style="width: 150px;"></big>
+			</td>
+		</tr>
+
+	</table>
+
+</form>

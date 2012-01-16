@@ -1,0 +1,18 @@
+{% extends 'club/base.html' %}
+
+{% block content %}
+
+    {% if already_there %}
+
+        <div id="neutralannouncement-23" class = "shadowin">You are already a member of this club.</div>
+
+    {% else %}
+
+        <div id="neutralannouncement-23" class = "shadowin">Thanks for joining {{ club.name }}. </div>
+
+    {% endif %}
+
+
+     <div id="back_link"><a href="/clubs/{{ club.pk }}/">Back to Club Page</a></div>
+
+{% endblock %}

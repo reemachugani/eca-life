@@ -1,0 +1,82 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+
+<div class="main">
+	<div id="back_to_list">
+   		<a href="{% url forum.views.forum forum_pk %}">&lt;&lt; Back to the list of topics</a>
+    </div><br/>
+
+
+    <!-- <div class="thread_title" style="background-color:#C7B85C;">
+		<table><tr>
+			<td width="500">
+				<b>{{ thread.title }} </b><br/>
+				Posted by: {{ thread.creator }}, at {{ thread.created }}
+			</td>
+			<td align="left">
+				<b>{{ views }}</b> views <br>
+				<b>{{ thread.num_replies }}</b> comments
+			</td>
+		</tr></table>
+	</div><br /> -->
+
+    <div id="list">
+    	<!-- Posts  -->
+        {% for post in posts.object_list %}
+
+       	<div class="post">
+
+			{% if forloop.counter == 1 %}
+
+			<div id="head_post" style="background-color:#E1EDE4; padding:8px;" class = "shadowin">
+			<table cellpadding=7 border=0 width=100%>
+				<tr>
+					<td width=80%>
+						<h2>{{ thread.title }}</h2>
+					</td>
+					<td>
+						<b>{{ views }}</b> views <br>
+						<b>{{ thread.num_replies }}</b> replies
+					</td>
+				</tr>
+				</table><hr>
+				<table cellpadding=7 border=0 width = 100%>
+				<tr>
+					<td rowspan=2 width=20% bgcolor=#FFFFFF align=center valign=middle class="shadowout">{{ thread.creator }} {% load avatar_tags %}{% avatar profile.user 120 %}</td>
+					<td width=80% height=90%>{{ post.body|safe }}<br /><br /><br /></td>
+				</tr>
+				<tr>
+					<td height=10%><i>Posted on <span class="date">{{ thread.created }}</span></i></td>{% if is_admin or is_owner %}<td><a href="{% url forum.views.edit_post thread.pk post.pk %}" class = "button">Edit</a></td><td><a href="{% url forum.views.delete_post thread.pk post.pk %}" class = "button">Delete</a></td>{% endif %}
+				</tr>
+				</tr></table>
+			</div>
+
+			{% else %}
+			<div style="background-color:#EEEEEE; padding:8px;" class = "shadowin">
+				<table cellpadding=7 border=0 width = 100%>
+				<tr>
+					<td rowspan=2 width=20% bgcolor=#FFFFFF align=center valign=middle class="shadowout">{{ post.creator }}{% load avatar_tags %}{% avatar profile.user 120 %}
+
+
+			       </td>
+					<td width=80% height=90%>{{ post.body|safe }}<br /><br /><br /></td>
+				</tr>
+
+				<tr>
+					<td height=10%><i>Posted on <span class="date">{{ post.created }} </span></i></td>{% if is_admin %}<td><a href="{% url forum.views.edit_post thread.pk post.pk %}" class = "button">Edit</a></td><td><a href="{% url forum.views.delete_post thread.pk post.pk %}" class = "button">Delete</a></td>{% endif %}
+				</tr>
+
+				</tr></table>
+			</div>
+			{% endif %}
+
+        </div>
+		<br />
+        {% endfor %}
+    </div><br />
+
+	{% include 'forum/comment_form.html' %}
+</div>
+
+{% endblock %}

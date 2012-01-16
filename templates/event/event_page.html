@@ -1,0 +1,56 @@
+{% extends 'event/base.html' %}
+
+{% block content %}
+
+   	<div id="event_details">
+
+		<div id = "pagetitle-24">
+      	{{ event.title }}
+      	</div><!--End of pagetitle-24-->
+
+	<div id="neutralannouncement-23" class="shadowin">
+
+       	{% if already_registered %}
+
+      	<font color="green"><b>You have registered for this event.</b></font><br><br>
+      	{% else %}
+
+      	<a id="register_button" href="/events/{{ event.pk }}/register">Register for event</a><br><br>
+        {% endif %}
+
+
+
+
+        Date Posted: {{ event.date_posted }}<br>
+		Description: {{ event.announcement|safe }}<br><br>
+		<b style="font-size:1.2em">Event Information</b><br>
+        Event Date: {{ event.date }}<br>
+        Time: {{ event.get_start_time_display}} - {{ event.get_end_time_display }}<br>
+        Venue: <span onclick="eventMap('{{ event.venue }}');" onmouseover="this.style.cursor='pointer';"><a href="#">{{ event.venue }}</a></span><br>
+        Meant for: {{ event.get_viewership_display }}
+		<div id = "mapArea"></div>
+        <!--<span id="float_right/left"><img src={{ MEDIA_ROOT }}{{ event.image }}/></span></p>-->
+
+    </div>
+
+
+
+    {% if is_admin %}
+		<div id = "neutralannouncement-23" class = "shadowin">
+		You are an administrator of this club.
+        <div id="student_registered"><a href="/events/{{ event.pk }}/registered_users/">Click here to view the list of Students Registered</a></div>
+		</div>
+        <br>
+        <br>
+			<div id="outer{{ event.pk }}" onclick="eventDelete({{ event.pk }});"><a href="#" class = 'button'>Delete this event</a>
+			<div id="inner{{ event.pk }}" class="confirmation">
+			<p>Are you sure you want to delete this event?</p>
+			<p><a href="/events/{{ event.pk }}/delete/">Yes</a></p>
+			<p><a href="#">No</a></p>
+			</div>
+			</div>
+
+    {% endif %}
+    </div><!--End of announcement-23-->
+
+{% endblock %}

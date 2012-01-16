@@ -1,0 +1,49 @@
+{% load i18n admin_modify adminmedia %}
+
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/widgets.css" />
+<script type="text/javascript" src="/jsi18n/"></script>
+<script type="text/javascript" src="{% admin_media_prefix %}js/core.js"></script>
+<script type="text/javascript" src="{% admin_media_prefix %}js/calendar.js"></script>
+{{ form.media }}
+{% endblock %}
+
+
+
+<div class="red">
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+</div>
+
+<form method="post" action="" class="accountForm marginTop">{% csrf_token %}
+	<table class="" cellspacing="10">
+	{% for field in form %}
+		<tr>
+			<td><p class="hint" {%if field.field.required %} bold> {% endif %}{{ field.label_tag }}</p>
+			{{ field }}
+
+
+			<div id="mapAreaII" style="position:absolute; height:400px; width:350px; top:480px; left:300px;"></div>
+
+
+			</td></tr>
+
+			{% if field.help_text %}<tr><td class="clearfix"><div id="falseannouncement-23">{{ field.help_text }}</div></td></tr>{% endif %}
+			{% if field.errors %}<tr><td class="myerrors clearfix"><div id="falseannouncement-23">{{ field.errors }}</div></td></tr>{% endif %}
+
+		</tr>
+	{% endfor %}
+		<tr>
+			<td colspan="3" >
+				<big><input type="submit" value="OK" class="big"></big>
+			</td>
+		</tr>
+
+	</table>
+</form>
+
+<script>
+pickDate();
+clickVenueId();
+</script>

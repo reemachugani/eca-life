@@ -1,0 +1,69 @@
+ {% extends 'event/base.html' %}
+
+{% block content %}
+
+     <div><a href="/events/" class=button> All Events</a> &nbsp; &nbsp;<a href="/events/my_club_events/" class=button>My Club Events</a></div>
+	 <div style="height:5px;"></div><hr>
+
+    {% block event_list %}
+        <p>Select a category and press "submit" to view events by category. You can also filter events from now to date entered.</p>
+        <form action="" method="get">
+            {{ filter.form.as_p }}
+            <input type="submit" class = "button" style = 'font-weight: bold;'/>
+        </form>
+        <script>
+		pickDate();
+		</script>
+        {% if events.object_list %}
+            {% for event in events.object_list %}
+                {% if event.viewership == 'P' %}
+                    <div id = "trueannouncement-23" class = "shadowin">
+                    <a href="/events/{{ event.pk }}/">{{ event.title }}</a><br>
+                    {{ event.date }} : {{ event.announcement|truncatewords_html:"50"|safe  }}<br>
+                    Meant for: {{ event.get_viewership_display }}
+                    </div>
+                {% endif %}
+                {% if user.is_authenticated %}
+                    {% if event.viewership == 'S' %}
+                    <div id = "trueannouncement-23" class = "shadowin">
+                    <a href="/events/{{ event.pk }}/">{{ event.title }}</a><br>
+                    {{ event.date }} : {{ event.announcement|truncatewords_html:"50"|safe  }}<br>
+                    Meant for: {{ event.get_viewership_display }}
+                    </div>
+                    {% endif %}
+                    {% if event.viewership == 'M' %}
+                        {% if student in event.club.members.all %}
+                            <div id = "trueannouncement-23" class = "shadowin">
+                            <a href="/events/{{ event.pk }}/">{{ event.title }}</a><br>
+                            {{ event.date }} : {{ event.announcement|truncatewords_html:"50"|safe  }}<br>
+                            Meant for: {{ event.get_viewership_display }}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <div id="falseannouncement-23" class = "shadowin">No results found!</div>
+        {% endif %}
+
+          {% if events.object_list and events.paginator.num_pages > 1 %}
+					<div class="pagination">
+					    <span class="step-links">
+					        {% if events.has_previous %}
+					            <a href= "?page={{ events.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+					        {% endif %}
+
+							{% if events.has_next %}
+					            <a href="?page={{ events.next_page_number }}">&nbsp;&nbsp;Next</a>
+					        {% endif %}
+
+					  		<span class="current">
+					   			&nbsp;(Page {{ events.number }} of {{ events.paginator.num_pages }})
+					    	</span>
+						</span>
+					</div>
+{% endif %}
+
+    {% endblock %}
+
+{% endblock %}

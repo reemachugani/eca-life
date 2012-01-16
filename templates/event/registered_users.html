@@ -1,0 +1,21 @@
+{% extends 'event/base.html' %}
+
+{% block content %}
+
+<p>Registered students for {{ event.title }}</p>
+
+<div id="list_users_registered">
+<ul>
+<table border =1 width = 80%>
+<tr><td width = 40% style = 'padding : 3px;'>Name</td><td width = 60% style = 'padding : 3px;'>Email</td></tr>
+{% for student in students %}
+
+    <li><tr><td>{{ student.user.first_name }} {{ student.user.last_name }} </td><td>{{student.user.email}} </td></tr> </li>
+{% endfor %}
+</table>
+</ul>
+</div>
+
+    <div id="backToEventPage"><a href="/events/{{ event.pk }}/" class = 'button'>Back to Event Page</a></div>
+
+{% endblock %}

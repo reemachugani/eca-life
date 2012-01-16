@@ -1,0 +1,39 @@
+{% extends 'club/base.html' %}
+
+{% block content %}
+
+    <div id = "pagetitle-24">All Announcements</div><!--Enf of pagetitle-24-->
+
+    <div id="list_of_announcements">
+    {% if annoucements %}
+        {% for announce in announcements.object_list %}
+		<div id = "trueannouncement-23" class = "shadowin">
+            {{ announce.date_posted }} : {{ announce.announcement }}<br>
+            Meant for: {{ announce.get_viewership_display }}
+        </div><!--End of trueannouncement-23-->
+        {% endfor %}
+    {% else %}
+		<div id = "falseannouncement-23" class="shadowin">Your club does not have any annoucement.</div>
+	{% endif %}
+
+    </div>
+
+     {% if announcements.object_list and announcements.paginator.num_pages > 1 %}
+			<div class="pagination">
+			    <span class="step-links">
+			        {% if announcements.has_previous %}
+			            <a href= "?page={{ announcements.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+			        {% endif %}
+
+					{% if announcements.has_next %}
+			            <a href="?page={{ announcements.next_page_number }}">&nbsp;&nbsp;Next</a>
+			        {% endif %}
+
+			  		<span class="current">
+			   			&nbsp;(Page {{ announcements.number }} of {{ announcements.paginator.num_pages }})
+			    	</span>
+				</span>
+			</div>
+{% endif %}
+
+{% endblock %}

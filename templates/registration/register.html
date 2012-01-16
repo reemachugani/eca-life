@@ -1,0 +1,24 @@
+{% extends 'registration/base.html' %}
+
+{% block title %}eCA Life User Registration{% endblock%}
+
+{% block content %}
+
+<style>
+
+#activation-35
+{
+	position:absolute;
+	top:10px;
+	left:300px;
+	width:60%;
+}
+
+</style>
+<div id="activation-35">
+<table width=100%><tr><td><h1>Sign Up</h1></td><td style = 'text-align: left; padding-left: 60px; padding-top:12px'>Already have an account? <b><a href="/">Log In!</a></b></td></tr></table>
+
+{% include "registration/form.html" %}
+</div>
+
+{% endblock %}

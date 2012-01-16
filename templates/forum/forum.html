@@ -1,0 +1,78 @@
+{% extends 'forum/base.html' %}
+{% block content %}
+   
+	
+<!-- Threads  -->
+<div id="pagetitle-24">{{ forum.title }}</div>
+
+<style>
+table{
+width:100%;
+border:0px solid;
+border-radius:15px;
+-moz-border-radius:15px; /* Firefox 3.6 and earlier */
+padding:10px;
+background:#AAD8DE;
+}
+
+th
+{
+background:#AAD8DE;
+}
+
+td
+{
+background:#eee;
+border: 1px solid;
+border-radius:5px;
+-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+padding:8px;
+}
+</style>
+
+<table class="shadowin" cellspacing=5>
+<tr align=center>
+<th width=50%>Title
+<th width=10%>Replies
+<th width=15%>Created By
+<th width=25%>Created
+
+	{% for thread in threads.object_list %}
+	<tr>
+        <td align=left><a href="{% url forum.views.thread thread.pk %}">{{ thread.title }}</a>
+   		<td align=center>{{ thread.num_replies }}
+		<td align=center>{{ thread.creator }}
+		<td align=left>{{ thread.created }}
+	{% endfor %}
+	
+</table>
+	
+</ur><br />
+
+<!-- Next/Prev page links  -->
+{% if threads.object_list and threads.paginator.num_pages > 1 %}
+<div class="pagination">
+    <span class="step-links">
+        {% if threads.has_previous %}
+            <a href= "?page={{ threads.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+        {% endif %}
+
+		{% if threads.has_next %}
+            <a href="?page={{ threads.next_page_number }}">&nbsp;&nbsp;Next</a>
+        {% endif %}
+
+  		<span class="current">
+   			&nbsp;(Page {{ threads.number }} of {{ threads.paginator.num_pages }})
+    	</span>
+	</span>
+</div>
+{% endif %}
+
+<div id="new_topic">
+	<p class="right">
+	<a href="{% url forum.views.new_thread pk %}" class="button">Add New Topic Here >></a>
+    </p>
+</div>
+
+{% endblock %}
+

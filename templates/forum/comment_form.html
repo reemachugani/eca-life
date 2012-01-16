@@ -1,0 +1,33 @@
+<div class="red">
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+</div>
+
+<style>
+p {
+	font-size: 1.2em;
+}
+#id_title
+{
+	padding-left: 7px;
+	width:543px;
+	height:25px;
+	font-size: 1.1em;
+}
+
+</style>
+
+<form method="post" action="" method="POST">{% csrf_token %}
+	<table class="" cellspacing="10">
+		<tr>
+			<td><div id="neutralannouncement-23" class="shadowin" style="position: relative; left: -20px;"><b>Reply:</b>
+			<div style="height:5px;"></div>
+			{{ form.body }}<div style="height:5px;"></div>
+			<input type="submit" value="Post" class="button" style="width: 150px;"></td>		
+		</tr>
+
+		
+	</table>
+
+</form>

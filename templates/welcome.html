@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Welcome to eCA Life</title>
+    <!-- <meta http-equiv="refresh" content="2">  -->
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+	<script type="text/javascript" src="/static/js/jquery-latest.js"></script>
+	<script type="text/javascript" src="/static/js/mainscript.js"></script>
+	<script>
+		$(document).ready(function(){
+			hidelogin();
+			remodel();
+		});
+	</script>
+
+	<style>
+	#activation-35
+	{
+		position:relative;
+		padding: 8px 2px;
+		width:400px;
+		text-align: center;
+		left: 5px;
+		top: 7px;
+	}
+	</style>
+
+</head>
+
+<body>
+
+<!--<div id = "topbar-11">
+		<div id = "header-12">
+			<h1 id = "title-13">eCA Life</h1>
+		</div><!--End of header-12-->
+	</div><!--End of topbar-11-->
+	<div id = "wrapper-bg-1">
+	<div id = "wrapper-2">
+	<div id = "welcome-header-36">
+		<a href="pprofile.html">&nbsp</a>
+	</div><!--End of welcome-header-36-->
+		<div id = "login-15">
+			<div id = "login-25">
+			</div><!--End of login-25-->
+			<div id = "login-18">
+
+			<table border=0 style="position:relative; left:-15px;">
+			<tr height = 250px><td width = 400px colspan=2 align=center><h2><br>Welcome to eCA Life</h2>
+			<div id="welcome-image-39"></div>
+			</td></tr>
+			<tr>
+			<td colspan=2 align=center>
+				<br />
+				<div class="welcome_options">
+						<div id = "activation-35">
+						{% include 'registration/login.html' %}
+						</div>
+						<br />
+				        
+				        
+    			</div>
+			<tr>
+			<td width=50%>Want to Join? <h3><a href="/accounts/register/">REGISTER</a></h3><br />
+			<td width=50%>Enter as a Guest? <h3><a href="/clubs/">GUEST</a></h3>
+			</table>
+
+			</div><!--End of login-18-->
+		</div><!--End of login-15-->
+	<div id = "footer-26">
+		&nbsp
+	</div><!--End of footer-26-->
+	</div><!--End of wrapper-2-->
+	</div><!--End of wrapper-bg-1-->
+
+</body>
+</html>

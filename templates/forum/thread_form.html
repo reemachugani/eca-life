@@ -1,0 +1,46 @@
+<div class="red">
+{% if form.non_field_errors %}
+{{ form.non_field_errors }}
+{% endif %}
+</div>
+
+<style>
+p {
+	font-size: 1.2em;
+}
+#id_title
+{
+	padding-left: 7px;
+	padding-right: 7px;
+	width:553px;
+	height:25px;
+	font-size: 1.1em;
+}
+</style>
+
+<form method="post" action="" method="POST">{% csrf_token %}
+	<table class="" cellspacing="10">
+		<tr>
+			<td><p>Topic title:</p>
+			{{ form.title }}{% if form.title.help_text %}<div id="falseannouncement-23">{{ form.title.help_text }}</div>{% endif %}
+			{% if form.title.errors %}<div id="falseannouncement-23">{{ form.title.errors }}</div>{% endif %}</td>
+
+		</tr>
+		<tr>
+				<td><p>Content:</p>
+				{{ form.body }}{% if form.body.help_text %}<div id="falseannouncement-23">{{ form.body.help_text }}</div>{% endif %}
+			{% if form.body.errors %}<div id="falseannouncement-23">{{ form.body.errors }}</div>{% endif %}</td>
+
+		</tr>
+
+
+
+		<tr>
+			<td colspan="3" >
+				<big><input type="submit" value="Create Topic" class="button" style="width: 150px;"></big>
+			</td>
+		</tr>
+
+	</table>
+
+</form>

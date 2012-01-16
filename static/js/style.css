@@ -1,0 +1,457 @@
+/*-----------
+  HTML Tags
+-----------*/
+
+
+html, body, h1, h2, h3, h4 { margin: 0; padding: 0; }
+ul, li {list-style: none; padding: 5px;}
+body { text-align: center; font: 14px 'Cabin Condensed', calibri, verdana, arial, sans-serif; background: #D8F6CE; }
+hr { border: 0; #008835: orange; background-color: #008835; height: 3px; }
+tr, td { vertical-align: top; }
+a { color: #eee; text-decoration: none; font-weight: bold; }
+a:hover { color: #008835; text-decoration: underline; }
+
+input, textarea
+{
+	background:#eee;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+	background: -webkit-linear-gradient(top, #fff, #eee);
+	background: -moz-linear-gradient(top, #fff, #eee);
+	background: -ms-linear-gradient(top, #fff, #eee);
+	background: -o-linear-gradient(top, #fff, #eee);
+	border:1px solid #999;
+}
+
+
+
+/*---------
+  Classes
+---------*/
+
+.login td { vertical-align: middle; text-align: left; }
+
+.calendar table { border:0px; }
+.calendar th { border:1px solid #FFAA00; background-color: #FFAA00; vertical-align: middle; text-align: center; }
+.calendar td { border:1px solid #FFAA00; vertical-align: middle; text-align: center; }
+.calendar a { color: black; }
+.calendar a:hover { color: #888; text-decoration: underline;}
+
+.messages table { border:1px; }
+.messages th { border:1px solid #AAD8DE; background-color: #AAD8DE; color: #559489; vertical-align: middle; text-align: center; }
+.messages td { border:1px solid #AAD8DE; background-color: #eee; color: #559489; vertical-align: middle; text-align: center; }
+.messages .contentpane td { border:1px solid #AAD8DE; background-color: #eee; color: #559489; vertical-align: middle; text-align: left; padding: 0px;}
+.messages .read { background: url(images/read.png) no-repeat center; width:100%; }
+.messages .unread { background: url(images/unread.png) no-repeat center; width:100%; }
+.messages .new { background-color: #CCE0DF; }
+.messages .newclickable { background-color: #CCE0DF; }
+.messages .newclickable:hover { background-color: #AAD8DE; }
+.messages .clickable:hover { background-color:#AAD8DE; };
+
+.errorlist { position: relative; color:#FF0000; font-weight:bold; left:-11px; }
+
+.button {
+   border: 0px;
+   border-top: 1px solid #ddf8ff;
+   background: #aad8de;
+   background: -webkit-gradient(linear, left top, left bottom, from(#aad8de), to(#ddf8ff));
+   background: -webkit-linear-gradient(top, #aad8de, #ddf8ff);
+   background: -moz-linear-gradient(top, #aad8de, #ddf8ff);
+   background: -ms-linear-gradient(top, #aad8de, #ddf8ff);
+   background: -o-linear-gradient(top, #aad8de, #ddf8ff);
+   padding: 3px 6px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,1,0.3) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,1,0.3) 0 1px 0;
+   box-shadow: rgba(0,0,1,0.3) 0 1px 0;
+   !text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #696510;
+   font-size: 1em;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border-top-color: #aad8de;
+   background: #aad8de;
+   color: #000000;
+   }
+.button:active {
+   border-top-color: #c4db69;
+   background: #c4db69;
+   }
+   
+.shadowin {
+   -moz-box-shadow:inset 0 0 10px #000000;
+   -webkit-box-shadow:inset 0 0 10px #000000;
+   box-shadow:inset 0 0 10px #000000;
+}
+
+.shadowout {
+  -moz-box-shadow: 5px 5px 5px #ccc;
+  -webkit-box-shadow: 5px 5px 5px #ccc;
+  box-shadow: 5px 5px 5px #ccc;
+}
+
+  
+/*------
+  Divs
+------*/
+
+#test-0
+{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background: green;
+}
+
+#wrapper-bg-1
+{
+	background: url(images/wrapper-bg.png) repeat-y;
+	position: relative;
+	margin: auto;
+	width: 914px; /* Width of wrapper bg image */
+}
+
+#wrapper-2
+{
+	text-align: left;
+	position: relative;
+	margin: auto;
+	width: 900px; /* Subtract 14 from wrapper-bg-1 width */
+	overflow: hidden;
+}
+
+#messages-bar-3
+{
+	position: relative;
+	width:500px;
+	background: #008835;
+	left: 155px;
+	top: 130px;
+	color: #B4FF8E;
+	margin: auto;
+	padding: 10px;
+	text-align: left;
+	
+	
+	
+	border-style: double;
+	border-width: 5px;
+	border-color: #ddd;
+	/*border-radius:25px;
+	-moz-border-radius:25px; /* Firefox 3.6 and earlier *
+	box-shadow: 5px 5px 5px #888888;
+	-webkit-box-shadow: 5px 5px 5px #888888; /* Safari */
+}
+
+#messages-bar-3 a:hover
+{
+	color: #B4FF8E;
+}
+
+#content-4 /* redundant, but in use */
+{
+	position: relative;
+	margin: auto;
+	padding: 0px; /* Effective width: Subtract padding*2 from wrapper-2 width (900) */
+	width: 900px;
+	text-align: left;
+}
+
+#link-bar-5
+{
+	position: relative;
+	background: #BF8F30;
+	margin: auto;
+	height: 31px;
+	text-align: center;
+}
+
+#main-6
+{
+	position: relative;
+	float: left;
+	width: 670px; /* Use width */
+	padding: 20px; /* Effective width 710px */
+	min-height: 505px;
+}
+
+#main-6 a { color: #444; text-decoration: none; }
+#main-6 a:hover { color: #888; text-decoration: none;}
+
+#divider-7
+{
+}
+
+#profile-area-8
+{
+	position: relative;
+	float: left;
+	background: url(images/profilebg.png) repeat-y;
+	color: #A66F00;
+	width: 170px;
+	top:-30px;
+	padding: 10px; /* Effective width 190px */
+	text-align: center;
+}
+
+#profile-area-8 a { color: #444; text-decoration: underline; }
+#profile-area-8 a:hover { color: #888; text-decoration: underline;}
+
+#header-9
+{
+	position: relative;
+	background: #FFD073;
+	color: #BF8F30;
+	margin: auto;
+	padding: 10px;
+	height: 40px;
+	text-align: left;
+}
+
+#link-10
+{
+	position: relative;
+	float: right;
+	width: 129px;
+	height: 17px;
+	padding: 5px;
+	margin: 0px 2px;
+	text-align: center;
+	background: url(images/linkbg2.png) repeat-x; /*#FFBF40;*/
+	color: #008835;
+	
+	right:-2px;
+}
+
+#link-10:hover
+{
+	background: url(images/linkbg4.png) repeat-x;
+}
+
+#link-10.active
+{
+	background: #FFF; /*#A66F00;*/
+	/*color: #FFBF40;*/
+	font-weight: bold;
+}
+
+#topbar-11
+{
+	position: relative;
+	/*background: url(images/headerbg.png) repeat-x;*/
+	background-color:#D8F6CE;
+	color: #BF8F30;
+	height: 200px;
+}
+
+#header-12
+{
+	position: relative;
+	background: url("images/banner.png") no-repeat;
+	background-color:#D8F6CE;
+	margin: auto;
+	width: 914px;
+	top:0px;
+	height: 200px;
+	text-align: center;
+}
+
+#title-13
+{
+	position: absolute;
+	top: 9px;
+}
+
+#footer-14
+{
+	position: relative;
+	background: url(images/footerbg.png) repeat-x; /*#BF8F30;*/
+	color: #B4FF8E;
+	padding: 10px;
+	width: 880px;
+	left: 7px;
+	top: 1px;
+}
+
+#login-15
+{
+	position: relative;
+	background: url("images/eCA-Life_Login-Page.gif");
+	color: #000090;
+	width: 900px;
+	height: 600px;
+	text-align: center;
+}
+
+#login-15 a { color: #003a90; text-decoration: underline; }
+#login-15 a:hover { color: #888; text-decoration: underline;}
+
+#calendar-event-16
+{
+	position: relative;
+	width: 170px;
+	margin-top: 10px;
+	text-align: center;
+}
+
+#links-bar-17
+{
+	position: relative;
+	background: #008835;
+	height: 27px;
+	margin:auto;
+}
+
+#login-18
+{
+	position: absolute;
+	left: 400px;
+	top: 0px;
+}
+
+#login-18 td
+{
+	vertical-align:top;
+	text-align:left;
+}
+
+#logo-19
+{
+	position: absolute;
+	width: 120px;
+	height: 100px;
+	left: 10px;
+}
+
+#forums-categories-holder-20
+{
+	position: relative;
+	width: 670px;
+}
+
+#forums-categories-holder-20 hr
+{
+	background: transparent;
+	color: transparent;
+	border-left:  none;
+	border-right: none;
+	border-top:   none;
+	border-bottom: 1px dashed #559;
+}
+
+#forums-individual-category-21
+{
+	position: relative;;
+	margin: 10px;
+	width: 95%;
+	left: 4px;
+	padding: 0px;
+	background: #eeeeee;
+	color: #559;
+	border-radius:15px;
+	-moz-border-radius:15px; /* Firefox 3.6 and earlier */
+	
+}
+
+#forums-individual-category-21 h2
+{
+	background:#AAD8DE;
+	padding:3px;
+	text-align:center;
+	border-top-right-radius:15px;
+	-moz-border-top-right-radius:15px; /* Firefox 3.6 and earlier */
+	border-top-left-radius:15px;
+	-moz-border-top-left-radius:15px; /* Firefox 3.6 and earlier */
+}
+
+#forums-individual-category-innerpadding-22
+{
+	padding:10px;
+}
+
+#trueannouncement-23
+{
+	background:#eee; /*D8F6CE*/
+	padding:10px;
+	margin: 10px;
+}
+
+#falseannouncement-23
+{
+	background:#FFD073;
+	padding:10px;
+	margin: 10px;
+	text-align:center;
+	color: maroon;
+	font-weight: bold;
+}
+
+#neutralannouncement-23
+{
+	background:#eeeeee;
+	padding:10px;
+	margin: 10px;
+}
+
+#pagetitle-24
+{
+	font-size:1.5em;
+	font-weight:bold;
+	color:#ccc;
+	padding:10px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#333));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#login-25
+{
+	position: absolute;
+	width: 400px;
+	top: 100px;
+	left: 400px;
+}
+
+#footer-26
+{
+	position: relative;
+	background: url(images/footerbg.png) repeat-x; /*#BF8F30;*/
+	background-color:#91CC72;
+	color: #B4FF8E;
+	padding: 10px;
+}
+
+#messageIcon-27
+{
+	background: url(images/mail.png) no-repeat;
+	width: 30px;
+	height: 30px;
+	position: relative;
+	float: left;
+	top: -5px;
+	left: -14px;
+}
+
+#unreadMail-28
+{
+	position: relative;
+	top: -3px;
+	left: 18px;
+	background: red;
+	padding: 1px;
+	width: 20px;
+	text-align: center;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+}
+
+#unreadMailText-29
+{
+	position: relative;
+	left: -1px;
+	font-size: .8em;
+}

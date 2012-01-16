@@ -1,0 +1,31 @@
+{% extends "club/base.html" %}
+{% block content %}
+
+    <a href="/clubs/" class=button>View all clubs</a>&nbsp&nbsp
+	<a href="/clubs/filter/" class=button>Filter clubs</a>
+	{% if user.is_authenticated %}&nbsp&nbsp<a href="/clubs/add_club/" class=button>Add new club</a>{% endif %}
+	<div style="height:5px;"></div><hr>
+
+    {% block club_list %}
+
+    <div id = "pagetitle-24">All Clubs</div><!--End of pagetitle-24-->
+    {% if not clubs %}
+	<div id="falseannouncement-23" class="shadowin">No club available. Be the first one to add club now!</div>
+	{% else %}
+
+
+
+    <div id = "neutralannouncement-23" class = "shadowin">
+    <ul>
+    {% for c in clubs %}
+        <li><a href="/clubs/{{ c.pk }}/">{{ c.name }}</a><br>
+                {{ club.description|truncatewords_html:"50"|safe }}
+        </li>
+    {% endfor %}
+    </ul>
+    </div><!--End of neutralannouncement-23-->
+    {% endif %}
+
+    {% endblock %}
+
+{% endblock %}

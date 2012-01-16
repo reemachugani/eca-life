@@ -1,0 +1,6 @@
+{% extends 'profiles/base.html' %}
+
+    <form enctype="multipart/form-data" method="POST" action="{% url avatar_add %}">
+        {{ form.as_p }}
+        <p>{% csrf_token %}<input type="submit" value="{% trans "Upload New Image" %}" /></p>
+    </form>

@@ -1,0 +1,47 @@
+{% extends 'announcement/homepage.html' %}
+{%block title%}Club Announcements{% endblock %}
+
+{% block announcement_list %}
+
+	<div id = "pagetitle-24">All Club Announcements</div><!--End of pagetitle-24-->
+
+    {% if announcements %}
+            <div id="list_of_announcements">
+
+            {% for announce in announcements.object_list %}
+            <div id = "trueannouncement-23" class = "shadowin">
+                <b>Club : </b>{{ announce.club }}<br>
+                <b>Date Posted : </b>{{ announce.date_posted }}<br>
+				{{ announce.announcement|truncatewords_html:"50"|safe  }}<br><br>
+                Visible to: {{ announce.get_viewership_display }}
+            </div><!--End of trueannouncement-23-->
+            {% endfor %}
+
+            </div>
+
+    {% else %}
+		<div id = "falseannouncement-23" class = "shadowin">
+        No club announcements available!
+        </div><!--End of falseannouncement-23-->
+
+    {% endif %}
+
+     {% if announcements.object_list and announcements.paginator.num_pages > 1 %}
+			<div class="pagination">
+			    <span class="step-links">
+			        {% if announcements.has_previous %}
+			            <a href= "?page={{ announcements.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+			        {% endif %}
+
+					{% if announcements.has_next %}
+			            <a href="?page={{ announcements.next_page_number }}">&nbsp;&nbsp;Next</a>
+			        {% endif %}
+
+			  		<span class="current">
+			   			&nbsp;(Page {{ announcements.number }} of {{ announcements.paginator.num_pages }})
+			    	</span>
+				</span>
+			</div>
+{% endif %}
+
+{% endblock %}

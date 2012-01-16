@@ -1,0 +1,42 @@
+{% extends 'club/filter.html' %}
+
+{% block club_list %}
+
+    <div id = "pagetitle-24">My Clubs</div><!--End of pagetitle-24-->
+
+    {% if clubs %}
+
+    {% for club in clubs.object_list %}
+        <div id = "trueannouncement-23" class = "shadowin">
+        <li><a href="/clubs/{{ club.pk }}/">{{ club.name }}</a><br>
+        {{ club.description|truncatewords_html:"50"|safe }}
+        </li>
+        </div>
+    {% endfor %}
+
+    {% else %}
+
+	<div id = "falseannouncement-23" class = "shadowin">
+        You have not joined any clubs! <br> To join a club, go to a Club page and click - Become a member.
+	</div><!--End of falseannouncement-23"-->
+    {% endif %}
+
+     {% if clubs.object_list and clubs.paginator.num_pages > 1 %}
+						<div class="pagination">
+						    <span class="step-links">
+						        {% if clubs.has_previous %}
+						            <a href= "?page={{ clubs.previous_page_number }}">&nbsp;&nbsp;Previous</a>
+						        {% endif %}
+
+								{% if clubs.has_next %}
+						            <a href="?page={{ clubs.next_page_number }}">&nbsp;&nbsp;Next</a>
+						        {% endif %}
+
+						  		<span class="current">
+						   			&nbsp;(Page {{ clubs.number }} of {{ clubs.paginator.num_pages }})
+						    	</span>
+							</span>
+						</div>
+{% endif %}
+
+{% endblock %}
